@@ -1,0 +1,14 @@
+.chatlog {
+  width: 100%;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.loading {
+  text-align: center;
+  padding: 14px;
+  border-bottom: 2px solid #ccc;
+  border-radius: 14px;
+  background-color: #fff;
+}
