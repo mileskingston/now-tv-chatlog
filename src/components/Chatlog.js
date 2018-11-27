@@ -44,9 +44,6 @@ class Chatlog extends Component {
         {!isLoading &&
           !error &&
             data
-              .sort(function(a, b) {
-                return new Date(b.timestamp) - new Date(a.timestamp);
-              })
               .map((message) =>
                 <Message
                   key={message.messageId}

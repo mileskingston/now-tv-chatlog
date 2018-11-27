@@ -38,27 +38,30 @@ Feel free to create new files to help you complete these tasks. Please ask befor
 
 4. Bonus Questions:
   - How would you achieve this with Redux?
-    - create store, initial data and any middleware.
-    - actions types for fetching, on success and on error created and call the api end points.
+    - create store, initial state and add necessary middleware.
+    - create actions types for fetching, on success and on error created.
+    - call the end point from inside the actions file and depending outcome call responding action type.
     - create reducers to update the store, depending on which action type is called.
     - in the chatlog component call action to start the process of calling end point.
+    - connect relevant components and mapStateToProps.
   
   - How would you handle an error from the API?
-    - using a then function you can used the second parameter to callback an error and that is can be set in the state/store.
+    - using the 'then' function, a second parameter can be used to callback an error and that is can be set in the state/store.
     - If doing this from a real API on fetching the end point, depending on the repsonse e.g. response.ok/ statusCode 200 return json else return the status Text. On using the try and catch methods onComponentDidMount we error message can be stored in the store/state.
 
   - If you were to continue this application, what would you add?
-    - use a reset style sheet for fallback
-    - a pre-processor like Sass so I can add variables for colors, fonts, spacing etc. Or use styled components. Creating styling for mobile first.
+    - use a reset style sheet for styling fallback
+    - a pre-processor like SASS so I can create variables to store colors, fonts, spacing etc. Or use styled components.
+    - creating styling from a mobile first perspective.
     - add snapshot testing to reduce the number of tests that deal with matching props.
     - create something a bit more interactive and visually appealing like a Tooltip component for the email hover.
-    - create timeconvertion into helper so it can be reusable.
+    - create timeConvertion function into helper so it can be reusable.
     - creating a loader component with animated spinner
-    - Add some kind off pagination or load more to reduce the amount of items viewed
-    - find a better way of looping through both arrays and comparing them using array mapping and filter
+    - Add pagination or load more to reduce the amount of items viewed
+    - Add a transition to the messages on load to make the page more interactive (CSSTransitionGroup)
   
   - If you were to deploy this application (or any web application) to production, how would you personally do it?
+    - Personally I have never had to deploy a web application. All the build step from the last step of merging with release or master are then passed onto the QA's. So from my side I would follow the Git flow commit my code via the feature. Once I've committed, TeamCity will run a build and on success deploy to development branch for the feature.
 
-  
   - Finally, what did you think of the test? 😀
 

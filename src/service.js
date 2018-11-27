@@ -6,27 +6,28 @@ export function getData() {
     .then((data) => {
       const messageData = data[0];
       const membersData = data[1];
+      let chatlog = [];
 
-      let chatLogData = [];
+      const newData = messageData.map((message, index) => {
+        let chatObject = {};
+        const member = membersData.find(value => value.id === message.userId);
 
-      for (let i = 0; i < messageData.length; i++) {
-        chatLogData[i] = {
-          messageId: messageData[i].id,
-          userId: messageData[i].userId,
-          message: messageData[i].message,
-          timestamp: messageData[i].timestamp,
-        };
-        for (let j = 0; j < membersData.length; j++) {
-          if (messageData[i].userId === membersData[j].id) {
-            chatLogData[i].email = membersData[j].email;
-            chatLogData[i].avatar = membersData[j].avatar;
-            chatLogData[i].fullName = `${membersData[j].firstName} ${membersData[j].lastName}`;
-          }
+        return chatObject = {
+          messageId: message.id,
+          userId: message.userId,
+          fullName: `${member.firstName} ${member.lastName}`,
+          timestamp: message.timestamp,
+          email: member.email,
+          message: message.message,
+          avatar: member.avatar,
         }
-      }
-      return chatLogData;
-    }
-  );
+    });
+
+    return chatlog = newData.
+      sort((a, b) =>
+        new Date(b.timestamp) - new Date(a.timestamp)
+      );
+  });
 }
 
 export function getMembersData() {
