@@ -8,6 +8,7 @@ describe('service', () => {
   it('getMembers data should match mockMembers', () => {
     return getMembers()
       .then((results) => {
+        expect(results.length).toBe(2);
         expect(results).toEqual(mockMembers);
       });
   });
@@ -15,15 +16,14 @@ describe('service', () => {
   it('getMessages data should match mockMessages', () => {
     return getMessages()
       .then((results) => {
+        expect(results.length).toBe(4);
         expect(results).toEqual(mockMessages);
       });
   });
 
   it('getData data should match', () => {
-    console.log(getData().resolve((data) => { data }));
-    return getData()
-      .then((results) => {
-        expect(results).toEqual(mockMessages);
-      });
+    return getData().then((results) => {
+      expect(results.length).toEqual(4);
+    });
   });
 });

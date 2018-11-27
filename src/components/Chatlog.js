@@ -11,7 +11,7 @@ class Chatlog extends Component {
     this.state = {
       data: [],
       error: '',
-      isLoading: false,
+      isLoading: true,
     }
   }
 
@@ -24,7 +24,7 @@ class Chatlog extends Component {
       .then((results) => {
         this.setState({
           data: results,
-          isLoading: true,
+          isLoading: false,
         });
       },
       (error) => {
@@ -37,11 +37,11 @@ class Chatlog extends Component {
 
     return (
       <div className="chatlog">
-        {!isLoading && 
+        {isLoading && 
           <p className="loading">Loading...</p>
         }
 
-        {isLoading &&
+        {!isLoading &&
           !error &&
             data
               .sort(function(a, b) {

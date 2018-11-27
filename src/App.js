@@ -1,12 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Chatlog from './components/Chatlog'; 
 
-class App extends Component {
-  render() {
-    return (
-      <Chatlog />
-    );
-  }
-}
+const App = () => (<Chatlog />);
 
 export default App;

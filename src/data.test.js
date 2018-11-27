@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { getMessages, getMembers } from './data';
 import { mockMessages, mockMembers } from './mockData';
+import { doesNotReject } from 'assert';
 
 jest.mock('./data.js');
 
