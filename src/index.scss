@@ -1,0 +1,14 @@
+@import './_colours.scss';
+
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: $body-text-c;
+  font-size: 16px;
+  line-height: 1.4;
+  font-family: $body-font;
+  background-color: $body-bg-c;
+}

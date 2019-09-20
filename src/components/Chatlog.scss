@@ -1,3 +1,5 @@
+@import '../_colours.scss';
+
 .chatlog {
   width: 100%;
   max-width: 600px;
@@ -8,7 +10,7 @@
 .loading {
   text-align: center;
   padding: 14px;
-  border-bottom: 2px solid #888;
+  border-bottom: $border-default;
   border-radius: 14px;
-  background-color: #fff;
+  background-color: $white;
 }

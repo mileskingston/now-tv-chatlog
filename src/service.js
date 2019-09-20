@@ -1,12 +1,12 @@
 import { getMessages, getMembers } from './data';
 
 export function getData() {
+  let chatlog = [];
   return Promise
     .all([getMessagesData(), getMembersData()])
     .then((data) => {
       const messageData = data[0];
       const membersData = data[1];
-      let chatlog = [];
 
       const newData = messageData.map((message, index) => {
         let chatObject = {};
@@ -23,10 +23,9 @@ export function getData() {
         }
     });
 
-    return chatlog = newData.
-      sort((a, b) =>
-        new Date(b.timestamp) - new Date(a.timestamp)
-      );
+    return chatlog = newData.sort((a, b) =>
+      new Date(b.timestamp) - new Date(a.timestamp)
+    );
   });
 }
 

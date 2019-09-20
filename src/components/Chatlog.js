@@ -1,63 +1,51 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import Message from './Message';
 import { getData } from '../service';
 
-import './Chatlog.css';
+import './Chatlog.scss';
 
-class Chatlog extends Component {
-  constructor(props) {
-    super(props);
+const Chatlog = () => {
+  const [data, setData] = useState([]);
+  const [error, setError] = useState('');
+  const [isLoading, setLoading] = useState(true);
 
-    this.state = {
-      data: [],
-      error: '',
-      isLoading: true,
-    }
-  }
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-  componentDidMount() {
-    this.fetchData();
-  }
-
-  fetchData() {
+  const fetchData = () => (
     getData()
       .then((results) => {
-        this.setState({
-          data: results,
-          isLoading: false,
-        });
+        setData(results);
+        setLoading(false);
       },
       (error) => {
-        this.setState({ error });
-      });
-  }
+        setError({ error });
+      })
+  );
 
-  render() {
-    const { isLoading, error, data } = this.state;
+  return (
+    <div className="chatlog">
+      {isLoading && 
+        <p className="loading">Loading...</p>
+      }
 
-    return (
-      <div className="chatlog">
-        {isLoading && 
-          <p className="loading">Loading...</p>
-        }
-
-        {!isLoading &&
-          !error &&
-            data
-              .map((message) =>
-                <Message
-                  key={message.messageId}
-                  avatar={message.avatar}
-                  name={message.fullName}
-                  message={message.message}
-                  time={message.timestamp}
-                  email={message.email}
-                />
-              )
-        }
-      </div>
-    );
-  }
+      {!isLoading &&
+        !error &&
+          data
+            .map((message) =>
+              <Message
+                key={message.messageId}
+                avatar={message.avatar}
+                name={message.fullName}
+                message={message.message}
+                time={message.timestamp}
+                email={message.email}
+              />
+            )
+      }
+    </div>
+  );
 }
 
 export default Chatlog;

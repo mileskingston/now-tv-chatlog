@@ -1,0 +1,79 @@
+@import '../_colours.scss';
+
+.message {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 40px;
+
+  &:hover &-content {
+    background: $grey-light;
+  }
+
+  &-avatar {
+    margin-right: 20px;
+
+    &__image {
+      max-width: 70px;
+      border-radius: 50%;
+    }
+  }
+
+  &-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    &__name {
+      margin: 0;
+      font-size: 1em;
+    }
+    
+    &__time {
+      font-size: 0.875em;
+      color: $grey;
+    }
+  }
+  
+  &-content {
+    position: relative;
+    flex: 1;
+    max-width: 100%;
+    padding: 14px;
+    border-bottom: $border-default;
+    background-color: $white;
+    border-radius: 14px;
+    font-size: 0.875em;
+    transition: 0.2s ease-in-out;
+
+    &:hover .message__email {
+      display: block;
+    } 
+  }
+
+  &__email {
+    display: none;
+    position: absolute;
+    top: -30px;
+    right: 0;
+    z-index: 1;
+    padding: 10px;
+    color: $white;
+    background: $tooltip-bg-c;
+    border-radius: 14px;
+
+    &:after {
+      top: 100%;
+      right: 20px;
+      border: solid transparent;
+      content: '';
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-top-color: $tooltip-bg-c;
+      border-width: 6px;
+      margin-left: -6px;
+    }
+  }
+}
