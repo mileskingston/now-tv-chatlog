@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Message from './Message';
+import Loader from './Loader';
 import { getData } from '../service';
-
-import './Chatlog.scss';
 
 const Chatlog = () => {
   const [data, setData] = useState([]);
@@ -24,14 +23,13 @@ const Chatlog = () => {
       })
   );
 
+  const isChatlogValid = !isLoading && !error;
+
   return (
     <div className="chatlog">
-      {isLoading && 
-        <p className="loading">Loading...</p>
-      }
+      <Loader loading={isLoading} />
 
-      {!isLoading &&
-        !error &&
+      {isChatlogValid &&
           data
             .map((message) =>
               <Message

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { convertDateFormat } from '../utils/index';
-import './Message.scss';
 
 const Message = ({ name, time, avatar, email, message }) => (
   <div className="message">

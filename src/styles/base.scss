@@ -1,4 +1,4 @@
-@import './_colours.scss';
+@import "./_variables";
 
 *, *:after, *:before {
   box-sizing: border-box;
@@ -12,3 +12,7 @@ body {
   font-family: $body-font;
   background-color: $body-bg-c;
 }
+
+@import "../components/Loader";
+@import "../components/Message";
+@import "../components/Chatlog";
